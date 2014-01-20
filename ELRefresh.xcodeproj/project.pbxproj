@@ -1,0 +1,490 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A9BD1CF2188D07B2005120A5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9BD1CF1188D07B2005120A5 /* Foundation.framework */; };
+		A9BD1CF4188D07B2005120A5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9BD1CF3188D07B2005120A5 /* CoreGraphics.framework */; };
+		A9BD1CF6188D07B2005120A5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9BD1CF5188D07B2005120A5 /* UIKit.framework */; };
+		A9BD1CFC188D07B2005120A5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A9BD1CFA188D07B2005120A5 /* InfoPlist.strings */; };
+		A9BD1CFE188D07B2005120A5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A9BD1CFD188D07B2005120A5 /* main.m */; };
+		A9BD1D02188D07B2005120A5 /* ELAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A9BD1D01188D07B2005120A5 /* ELAppDelegate.m */; };
+		A9BD1D05188D07B2005120A5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9BD1D03188D07B2005120A5 /* Main.storyboard */; };
+		A9BD1D08188D07B2005120A5 /* ELViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9BD1D07188D07B2005120A5 /* ELViewController.m */; };
+		A9BD1D0A188D07B2005120A5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9BD1D09188D07B2005120A5 /* Images.xcassets */; };
+		A9BD1D11188D07B2005120A5 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9BD1D10188D07B2005120A5 /* XCTest.framework */; };
+		A9BD1D12188D07B2005120A5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9BD1CF1188D07B2005120A5 /* Foundation.framework */; };
+		A9BD1D13188D07B2005120A5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9BD1CF5188D07B2005120A5 /* UIKit.framework */; };
+		A9BD1D1B188D07B2005120A5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A9BD1D19188D07B2005120A5 /* InfoPlist.strings */; };
+		A9BD1D1D188D07B2005120A5 /* ELRefreshTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A9BD1D1C188D07B2005120A5 /* ELRefreshTests.m */; };
+		A9BD1D29188D0A25005120A5 /* ELRefreshView.m in Sources */ = {isa = PBXBuildFile; fileRef = A9BD1D28188D0A25005120A5 /* ELRefreshView.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A9BD1D14188D07B2005120A5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A9BD1CE6188D07B2005120A5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A9BD1CED188D07B2005120A5;
+			remoteInfo = ELRefresh;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		A9BD1CEE188D07B2005120A5 /* ELRefresh.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ELRefresh.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A9BD1CF1188D07B2005120A5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		A9BD1CF3188D07B2005120A5 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		A9BD1CF5188D07B2005120A5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		A9BD1CF9188D07B2005120A5 /* ELRefresh-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ELRefresh-Info.plist"; sourceTree = "<group>"; };
+		A9BD1CFB188D07B2005120A5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		A9BD1CFD188D07B2005120A5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		A9BD1CFF188D07B2005120A5 /* ELRefresh-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ELRefresh-Prefix.pch"; sourceTree = "<group>"; };
+		A9BD1D00188D07B2005120A5 /* ELAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELAppDelegate.h; sourceTree = "<group>"; };
+		A9BD1D01188D07B2005120A5 /* ELAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELAppDelegate.m; sourceTree = "<group>"; };
+		A9BD1D04188D07B2005120A5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A9BD1D06188D07B2005120A5 /* ELViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELViewController.h; sourceTree = "<group>"; };
+		A9BD1D07188D07B2005120A5 /* ELViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELViewController.m; sourceTree = "<group>"; };
+		A9BD1D09188D07B2005120A5 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		A9BD1D0F188D07B2005120A5 /* ELRefreshTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ELRefreshTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A9BD1D10188D07B2005120A5 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		A9BD1D18188D07B2005120A5 /* ELRefreshTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ELRefreshTests-Info.plist"; sourceTree = "<group>"; };
+		A9BD1D1A188D07B2005120A5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		A9BD1D1C188D07B2005120A5 /* ELRefreshTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELRefreshTests.m; sourceTree = "<group>"; };
+		A9BD1D27188D0A25005120A5 /* ELRefreshView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELRefreshView.h; sourceTree = "<group>"; };
+		A9BD1D28188D0A25005120A5 /* ELRefreshView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELRefreshView.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A9BD1CEB188D07B2005120A5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A9BD1CF4188D07B2005120A5 /* CoreGraphics.framework in Frameworks */,
+				A9BD1CF6188D07B2005120A5 /* UIKit.framework in Frameworks */,
+				A9BD1CF2188D07B2005120A5 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A9BD1D0C188D07B2005120A5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A9BD1D11188D07B2005120A5 /* XCTest.framework in Frameworks */,
+				A9BD1D13188D07B2005120A5 /* UIKit.framework in Frameworks */,
+				A9BD1D12188D07B2005120A5 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A9BD1CE5188D07B2005120A5 = {
+			isa = PBXGroup;
+			children = (
+				A9BD1CF7188D07B2005120A5 /* ELRefresh */,
+				A9BD1D16188D07B2005120A5 /* ELRefreshTests */,
+				A9BD1CF0188D07B2005120A5 /* Frameworks */,
+				A9BD1CEF188D07B2005120A5 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A9BD1CEF188D07B2005120A5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A9BD1CEE188D07B2005120A5 /* ELRefresh.app */,
+				A9BD1D0F188D07B2005120A5 /* ELRefreshTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A9BD1CF0188D07B2005120A5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A9BD1CF1188D07B2005120A5 /* Foundation.framework */,
+				A9BD1CF3188D07B2005120A5 /* CoreGraphics.framework */,
+				A9BD1CF5188D07B2005120A5 /* UIKit.framework */,
+				A9BD1D10188D07B2005120A5 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A9BD1CF7188D07B2005120A5 /* ELRefresh */ = {
+			isa = PBXGroup;
+			children = (
+				A9BD1D26188D0A04005120A5 /* refreshView */,
+				A9BD1D00188D07B2005120A5 /* ELAppDelegate.h */,
+				A9BD1D01188D07B2005120A5 /* ELAppDelegate.m */,
+				A9BD1D03188D07B2005120A5 /* Main.storyboard */,
+				A9BD1D06188D07B2005120A5 /* ELViewController.h */,
+				A9BD1D07188D07B2005120A5 /* ELViewController.m */,
+				A9BD1D09188D07B2005120A5 /* Images.xcassets */,
+				A9BD1CF8188D07B2005120A5 /* Supporting Files */,
+			);
+			path = ELRefresh;
+			sourceTree = "<group>";
+		};
+		A9BD1CF8188D07B2005120A5 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A9BD1CF9188D07B2005120A5 /* ELRefresh-Info.plist */,
+				A9BD1CFA188D07B2005120A5 /* InfoPlist.strings */,
+				A9BD1CFD188D07B2005120A5 /* main.m */,
+				A9BD1CFF188D07B2005120A5 /* ELRefresh-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A9BD1D16188D07B2005120A5 /* ELRefreshTests */ = {
+			isa = PBXGroup;
+			children = (
+				A9BD1D1C188D07B2005120A5 /* ELRefreshTests.m */,
+				A9BD1D17188D07B2005120A5 /* Supporting Files */,
+			);
+			path = ELRefreshTests;
+			sourceTree = "<group>";
+		};
+		A9BD1D17188D07B2005120A5 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A9BD1D18188D07B2005120A5 /* ELRefreshTests-Info.plist */,
+				A9BD1D19188D07B2005120A5 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A9BD1D26188D0A04005120A5 /* refreshView */ = {
+			isa = PBXGroup;
+			children = (
+				A9BD1D27188D0A25005120A5 /* ELRefreshView.h */,
+				A9BD1D28188D0A25005120A5 /* ELRefreshView.m */,
+			);
+			name = refreshView;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A9BD1CED188D07B2005120A5 /* ELRefresh */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A9BD1D20188D07B2005120A5 /* Build configuration list for PBXNativeTarget "ELRefresh" */;
+			buildPhases = (
+				A9BD1CEA188D07B2005120A5 /* Sources */,
+				A9BD1CEB188D07B2005120A5 /* Frameworks */,
+				A9BD1CEC188D07B2005120A5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ELRefresh;
+			productName = ELRefresh;
+			productReference = A9BD1CEE188D07B2005120A5 /* ELRefresh.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A9BD1D0E188D07B2005120A5 /* ELRefreshTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A9BD1D23188D07B2005120A5 /* Build configuration list for PBXNativeTarget "ELRefreshTests" */;
+			buildPhases = (
+				A9BD1D0B188D07B2005120A5 /* Sources */,
+				A9BD1D0C188D07B2005120A5 /* Frameworks */,
+				A9BD1D0D188D07B2005120A5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A9BD1D15188D07B2005120A5 /* PBXTargetDependency */,
+			);
+			name = ELRefreshTests;
+			productName = ELRefreshTests;
+			productReference = A9BD1D0F188D07B2005120A5 /* ELRefreshTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A9BD1CE6188D07B2005120A5 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = EL;
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = iOSTeam;
+				TargetAttributes = {
+					A9BD1D0E188D07B2005120A5 = {
+						TestTargetID = A9BD1CED188D07B2005120A5;
+					};
+				};
+			};
+			buildConfigurationList = A9BD1CE9188D07B2005120A5 /* Build configuration list for PBXProject "ELRefresh" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A9BD1CE5188D07B2005120A5;
+			productRefGroup = A9BD1CEF188D07B2005120A5 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A9BD1CED188D07B2005120A5 /* ELRefresh */,
+				A9BD1D0E188D07B2005120A5 /* ELRefreshTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A9BD1CEC188D07B2005120A5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A9BD1D0A188D07B2005120A5 /* Images.xcassets in Resources */,
+				A9BD1CFC188D07B2005120A5 /* InfoPlist.strings in Resources */,
+				A9BD1D05188D07B2005120A5 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A9BD1D0D188D07B2005120A5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A9BD1D1B188D07B2005120A5 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A9BD1CEA188D07B2005120A5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A9BD1D08188D07B2005120A5 /* ELViewController.m in Sources */,
+				A9BD1D29188D0A25005120A5 /* ELRefreshView.m in Sources */,
+				A9BD1CFE188D07B2005120A5 /* main.m in Sources */,
+				A9BD1D02188D07B2005120A5 /* ELAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A9BD1D0B188D07B2005120A5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A9BD1D1D188D07B2005120A5 /* ELRefreshTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A9BD1D15188D07B2005120A5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A9BD1CED188D07B2005120A5 /* ELRefresh */;
+			targetProxy = A9BD1D14188D07B2005120A5 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		A9BD1CFA188D07B2005120A5 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A9BD1CFB188D07B2005120A5 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		A9BD1D03188D07B2005120A5 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A9BD1D04188D07B2005120A5 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		A9BD1D19188D07B2005120A5 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A9BD1D1A188D07B2005120A5 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A9BD1D1E188D07B2005120A5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		A9BD1D1F188D07B2005120A5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A9BD1D21188D07B2005120A5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ELRefresh/ELRefresh-Prefix.pch";
+				INFOPLIST_FILE = "ELRefresh/ELRefresh-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		A9BD1D22188D07B2005120A5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ELRefresh/ELRefresh-Prefix.pch";
+				INFOPLIST_FILE = "ELRefresh/ELRefresh-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		A9BD1D24188D07B2005120A5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/ELRefresh.app/ELRefresh";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ELRefresh/ELRefresh-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "ELRefreshTests/ELRefreshTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		A9BD1D25188D07B2005120A5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/ELRefresh.app/ELRefresh";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ELRefresh/ELRefresh-Prefix.pch";
+				INFOPLIST_FILE = "ELRefreshTests/ELRefreshTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A9BD1CE9188D07B2005120A5 /* Build configuration list for PBXProject "ELRefresh" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A9BD1D1E188D07B2005120A5 /* Debug */,
+				A9BD1D1F188D07B2005120A5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A9BD1D20188D07B2005120A5 /* Build configuration list for PBXNativeTarget "ELRefresh" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A9BD1D21188D07B2005120A5 /* Debug */,
+				A9BD1D22188D07B2005120A5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		A9BD1D23188D07B2005120A5 /* Build configuration list for PBXNativeTarget "ELRefreshTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A9BD1D24188D07B2005120A5 /* Debug */,
+				A9BD1D25188D07B2005120A5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A9BD1CE6188D07B2005120A5 /* Project object */;
+}
