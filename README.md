@@ -1,7 +1,8 @@
 ELRefresh
 =========
-
-Pull-to-refresh
+<img src="https://github.com/zq54zquan/ELRefresh/blob/master/ELRefresh.gif">
+<br/>
+Pull-to-refresh<br/>
 <b>How to use</b><br/>
 pod 'ELRefresh', '~> 0.0.1'<br/>
 In your viewController's viewWillAppear function:<br/>
