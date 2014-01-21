@@ -8,9 +8,7 @@
 
 #import "ELRefreshView.h"
 
-#define ELREFRESHLASTDATE     @"ELREFRESHLASTDATE"
 #define ELDRAWHEIGHT          64
-#define kScrollTag             1000
 
 
 @interface ELRefreshView()
@@ -44,7 +42,6 @@
             self.rotation = fmodf((self.rotation+M_PI*0.05),(M_PI*2));
             [self setNeedsDisplay];
         });
-        self.scrollView.tag = kScrollTag;
     }
     return self;
 }
