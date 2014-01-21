@@ -22,6 +22,7 @@
 		A9BD1D1B188D07B2005120A5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A9BD1D19188D07B2005120A5 /* InfoPlist.strings */; };
 		A9BD1D1D188D07B2005120A5 /* ELRefreshTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A9BD1D1C188D07B2005120A5 /* ELRefreshTests.m */; };
 		A9BD1D29188D0A25005120A5 /* ELRefreshView.m in Sources */ = {isa = PBXBuildFile; fileRef = A9BD1D28188D0A25005120A5 /* ELRefreshView.m */; };
+		A9E8EBD1188E3C52006D1699 /* ELDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9E8EBD0188E3C52006D1699 /* ELDetailViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,9 @@
 		A9BD1D1C188D07B2005120A5 /* ELRefreshTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELRefreshTests.m; sourceTree = "<group>"; };
 		A9BD1D27188D0A25005120A5 /* ELRefreshView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELRefreshView.h; sourceTree = "<group>"; };
 		A9BD1D28188D0A25005120A5 /* ELRefreshView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELRefreshView.m; sourceTree = "<group>"; };
+		A9E8EBCD188E2459006D1699 /* libobjc.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libobjc.dylib; path = usr/lib/libobjc.dylib; sourceTree = SDKROOT; };
+		A9E8EBCF188E3C52006D1699 /* ELDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELDetailViewController.h; sourceTree = "<group>"; };
+		A9E8EBD0188E3C52006D1699 /* ELDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELDetailViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +108,7 @@
 		A9BD1CF0188D07B2005120A5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A9E8EBCD188E2459006D1699 /* libobjc.dylib */,
 				A9BD1CF1188D07B2005120A5 /* Foundation.framework */,
 				A9BD1CF3188D07B2005120A5 /* CoreGraphics.framework */,
 				A9BD1CF5188D07B2005120A5 /* UIKit.framework */,
@@ -123,6 +128,8 @@
 				A9BD1D07188D07B2005120A5 /* ELViewController.m */,
 				A9BD1D09188D07B2005120A5 /* Images.xcassets */,
 				A9BD1CF8188D07B2005120A5 /* Supporting Files */,
+				A9E8EBCF188E3C52006D1699 /* ELDetailViewController.h */,
+				A9E8EBD0188E3C52006D1699 /* ELDetailViewController.m */,
 			);
 			path = ELRefresh;
 			sourceTree = "<group>";
@@ -263,6 +270,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9E8EBD1188E3C52006D1699 /* ELDetailViewController.m in Sources */,
 				A9BD1D08188D07B2005120A5 /* ELViewController.m in Sources */,
 				A9BD1D29188D0A25005120A5 /* ELRefreshView.m in Sources */,
 				A9BD1CFE188D07B2005120A5 /* main.m in Sources */,
@@ -475,6 +483,7 @@
 				A9BD1D22188D07B2005120A5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A9BD1D23188D07B2005120A5 /* Build configuration list for PBXNativeTarget "ELRefreshTests" */ = {
 			isa = XCConfigurationList;
@@ -483,6 +492,7 @@
 				A9BD1D25188D07B2005120A5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

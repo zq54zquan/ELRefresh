@@ -7,65 +7,139 @@
 //
 
 #import "ELRefreshView.h"
+
 #define ELREFRESHLASTDATE     @"ELREFRESHLASTDATE"
-#define ELDRAWHEIGHT          60
+#define ELDRAWHEIGHT          64
+#define kScrollTag             1000
+
+
 @interface ELRefreshView()
 @property (nonatomic,weak) UIScrollView *scrollView;
 @property (nonatomic,strong) NSDate *lastFreshDate;
+@property (nonatomic, copy) NSString *lastUpdateText;
+@property (nonatomic, strong) NSDateFormatter *formatter;
+@property (nonatomic, assign) float rotation;
+@property (nonatomic, strong) dispatch_source_t timer;
 @end
-
 
 
 @implementation ELRefreshView
 
 -(instancetype)initWithScrollView:(UIScrollView *)scrollView refreshDirection:(ELRefreshDirection)direction
 {
-    if (self = [super initWithFrame:CGRectMake(0, -scrollView.bounds.size.height, scrollView.bounds.size.width, scrollView.bounds.size.height)]) {
+    if (self = [super initWithFrame:CGRectMake(scrollView.frame.origin.x, scrollView.frame.origin.y+scrollView.contentInset.top, scrollView.frame.size.width, ELDRAWHEIGHT)]) {
         _scrollView = scrollView;
-        if ([[NSUserDefaults standardUserDefaults] valueForKey:ELREFRESHLASTDATE]) {
-            self.lastFreshDate = [[NSUserDefaults standardUserDefaults] valueForKey:ELREFRESHLASTDATE];
-        }
-        [_scrollView addObserver:self forKeyPath:@"contentOffset" options:NSKeyValueObservingOptionNew context:Nil];
         [_scrollView addObserver:self forKeyPath:@"pan.state" options:NSKeyValueObservingOptionNew context:Nil];
+        [_scrollView addObserver:self forKeyPath:@"contentOffset" options:NSKeyValueObservingOptionNew context:Nil];
+        [_scrollView.superview insertSubview:self belowSubview:_scrollView];
+        _scrollView.backgroundColor = [UIColor clearColor];
         self.backgroundColor = [UIColor clearColor];
+        self.formatter = [[NSDateFormatter alloc] init];
+        [self.formatter setAMSymbol:@"AM"];
+        [self.formatter setPMSymbol:@"PM"];
+        [self.formatter setDateFormat:@"MM/dd/yyyy hh:mm:ss"];
+        _timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, dispatch_get_main_queue());
+        dispatch_source_set_timer(_timer, dispatch_time(DISPATCH_TIME_NOW, 0), 0.05*NSEC_PER_SEC, 0);
+        dispatch_source_set_event_handler(_timer, ^{
+            self.rotation = fmodf((self.rotation+M_PI*0.05),(M_PI*2));
+            [self setNeedsDisplay];
+        });
+        self.scrollView.tag = kScrollTag;
     }
     return self;
 }
 
 
+
 -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
 
     if (object == self.scrollView&&[keyPath isEqualToString:@"pan.state"]) {
-        if ([[change valueForKey:@"new"] intValue] == UIGestureRecognizerStateEnded) {
-            NSLog(@"release");
+        if (!self.loading&&[[change valueForKey:@"new"] intValue] == UIGestureRecognizerStateEnded&&self.scrollView.contentOffset.y<-ELDRAWHEIGHT-self.frame.origin.y) {
+            [self setLoading:YES];
+            self.lastFreshDate = [NSDate date];
+            if (self.refreshBlock) {
+                self.refreshBlock();
+            }
         }
     }else if(object == self.scrollView&&[keyPath isEqualToString:@"contentOffset"]){
         [self setNeedsDisplay];
     }
-    
-    
 }
+
+
 
 
 -(void)drawRect:(CGRect)rect{
     [super drawRect:rect];
     UIFont *font = [UIFont boldSystemFontOfSize:10];
-    float y = self.scrollView.contentOffset.y+64;
+    UIFont *dateFont = [UIFont systemFontOfSize:10];
+    float y = self.scrollView.contentOffset.y+self.frame.origin.y;
     float fac = 1-MAX(0,MIN(1,(y+ELDRAWHEIGHT)/ELDRAWHEIGHT));
-    CGRect avaibleRect= CGRectMake(0, self.frame.size.height-ELDRAWHEIGHT, self.frame.size.width, ELDRAWHEIGHT);
+    if (self.loading) {
+        fac = 1;
+    }
+
+    float width = rect.size.width;
+    NSString *hintString;
+    if (!self.loading) {
+        if (fac==1) {
+            hintString = @"释放立即刷新";
+        }else{
+            hintString = @"下拉刷新";
+        }
+    }else{
+        hintString = @"正在刷新";
+    }
+    
+    float textWidth = [hintString boundingRectWithSize:CGSizeMake(width, font.lineHeight) options:(NSStringDrawingTruncatesLastVisibleLine) attributes:@{NSFontAttributeName:font} context:nil].size.width;
     CGContextRef context = UIGraphicsGetCurrentContext();
     CGContextSetStrokeColorWithColor(context, [[UIColor redColor] CGColor]);
-    CGContextAddArc(context, CGRectGetWidth(avaibleRect)*0.5, self.frame.size.height-ELDRAWHEIGHT+ELDRAWHEIGHT*0.25, ELDRAWHEIGHT*0.25, 0, 2*M_PI*fac, 0);
-    NSLog(@"y:%f,ANGLE:%f",y,fac*360);
-    CGContextStrokePath(context);
-    NSString *hintString;
-    if (fac==1) {
-        hintString = @"释放立即刷新";
-    }else{
-        hintString = @"下拉刷新";
-    }
-    [hintString drawAtPoint:CGPointMake(CGRectGetWidth(avaibleRect)*0.5+0.25*ELDRAWHEIGHT, self.frame.size.height-ELDRAWHEIGHT+0.5*(ELDRAWHEIGHT*0.5-font.lineHeight)) withAttributes:@{NSFontAttributeName:font}];
     
+    if (!self.loading) {
+        CGContextAddArc(context, 0.5*(width-(ELDRAWHEIGHT*0.55+textWidth)), ELDRAWHEIGHT*0.3, ELDRAWHEIGHT*0.25, 0, 2*M_PI*fac-M_PI*0.1, 0);
+    }else{
+        CGContextAddArc(context, 0.5*(width-(ELDRAWHEIGHT*0.55+textWidth)), ELDRAWHEIGHT*0.3, ELDRAWHEIGHT*0.25, self.rotation, self.rotation+2*M_PI*fac-M_PI*0.1, 0);
+    }
+    
+    CGContextStrokePath(context);
+    
+    
+    [hintString drawAtPoint:CGPointMake(0.5*(width-(ELDRAWHEIGHT*0.55+textWidth))+0.55*ELDRAWHEIGHT, 0.05*ELDRAWHEIGHT+0.5*(ELDRAWHEIGHT*0.5-font.lineHeight)) withAttributes:@{NSFontAttributeName:font}];
+    
+    
+    [self lastStringFromDate:self.lastFreshDate];
+    CGSize dateSize = [self.lastUpdateText boundingRectWithSize:CGSizeMake(width, MAXFLOAT) options:(NSStringDrawingTruncatesLastVisibleLine) attributes:@{NSFontAttributeName:dateFont} context:nil].size;
+    //    float dateHeight = dateSize.height;
+    float dateWidth = dateSize.width;
+    [self.lastUpdateText drawAtPoint:CGPointMake(0.5*(width-dateWidth), ELDRAWHEIGHT*0.6) withAttributes:@{NSFontAttributeName:dateFont}];
+}
+
+-(void)lastStringFromDate:(NSDate *)lastDate{
+    if (!lastDate) {
+        self.lastUpdateText = @"从未刷新!";
+    }else{
+        self.lastUpdateText = [NSString stringWithFormat:@"上次刷新时间: %@", [self.formatter stringFromDate:lastDate]];
+    }
+    
+}
+
+-(void)setLoading:(BOOL)loading{
+    _loading = loading;
+    [UIView animateWithDuration:0.25 animations:^{
+        if (!_loading) {
+            self.scrollView.contentInset = UIEdgeInsetsMake(self.frame.origin.y-self.scrollView.frame.origin.y, 0, 0, 0);
+            dispatch_suspend(self.timer);
+        }else{
+            self.scrollView.contentInset = UIEdgeInsetsMake(self.frame.origin.y-self.scrollView.frame.origin.y+ELDRAWHEIGHT, 0, 0, 0);
+            self.rotation = 0;
+            dispatch_resume(self.timer);
+        }
+    }];
+}
+
+
+-(void)dealloc{
+    self.formatter = nil;
 }
 
 /*

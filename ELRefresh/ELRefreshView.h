@@ -17,6 +17,15 @@ typedef void (^RefeshBlock)();
 
 
 @interface ELRefreshView : UIView
+/**
+ *  initilization
+ *
+ *  @param scrollView scrollView to observer
+ *  @param direction  refresh direction ----- not implement
+ *
+ *  @return Refresh view
+ */
 -(instancetype)initWithScrollView:(UIScrollView *)scrollView refreshDirection:(ELRefreshDirection)direction;
 @property (nonatomic, copy) RefeshBlock refreshBlock;
+@property (nonatomic, assign) BOOL loading;
 @end

@@ -10,8 +10,10 @@
 #import "ELRefreshView.h"
 
 
-@interface ELViewController ()<UITableViewDataSource>
+@interface ELViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (nonatomic, strong) ELRefreshView *refreshView;
+@property (nonatomic, assign) dispatch_once_t onceToken;
 @end
 
 @implementation ELViewController
@@ -19,11 +21,26 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    ELRefreshView *refreshView = [[ELRefreshView alloc] initWithScrollView:self.tableView refreshDirection:ELRefreshUpper];
-    [self.tableView insertSubview:refreshView atIndex:0];
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"identifier"];
-	// Do any additional setup after loading the view, typically from a nib.
 }
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    
+    dispatch_once(&_onceToken, ^{
+        self.refreshView = [[ELRefreshView alloc] initWithScrollView:self.tableView refreshDirection:ELRefreshUpper];
+        __weak ELViewController *weakSelf = self;
+        self.refreshView.refreshBlock = ^{
+            double delayInSeconds = 2.0;
+            dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+            dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+                [weakSelf.refreshView setLoading:NO];
+            });
+        };
+    });
+    
+}
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -31,9 +48,9 @@
     // Dispose of any resources that can be recreated.
 }
 
-
+#pragma mark TableView DataSource
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 10;
+    return 20;
 }
 
 
@@ -41,5 +58,11 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"identifier" forIndexPath:indexPath];
     cell.textLabel.text = @"Text";
     return cell;
+}
+
+
+#pragma mark TableView Delegate
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [self performSegueWithIdentifier:@"toDetail" sender:self];
 }
 @end
