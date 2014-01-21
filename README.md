@@ -1,6 +1,6 @@
 ELRefresh
 =========
-<img src="https://github.com/zq54zquan/ELRefresh/blob/master/ELRefresh.gif">
+<img src="https://github.com/zq54zquan/ELRefresh/blob/master/ELRefresh.gif"/>
 <br/>
 Pull-to-refresh<br/>
 <b>How to use</b><br/>
