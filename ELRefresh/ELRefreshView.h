@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 typedef enum {
-    ELRefreshUpper,
+    ELRefreshTop,
     ELRefreshBottom
 } ELRefreshDirection;
 

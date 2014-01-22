@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) ELRefreshView *refreshView;
 @property (nonatomic, assign) dispatch_once_t onceToken;
+@property (nonatomic, strong) ELRefreshView *refreshView1;
 @end
 
 @implementation ELViewController
@@ -28,13 +29,22 @@
     [super viewWillAppear:animated];
     
     dispatch_once(&_onceToken, ^{
-        self.refreshView = [[ELRefreshView alloc] initWithScrollView:self.tableView refreshDirection:ELRefreshUpper];
+        self.refreshView = [[ELRefreshView alloc] initWithScrollView:self.tableView refreshDirection:ELRefreshTop];
         __weak ELViewController *weakSelf = self;
         self.refreshView.refreshBlock = ^{
             double delayInSeconds = 2.0;
             dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
             dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
                 [weakSelf.refreshView setLoading:NO];
+            });
+        };
+        
+        self.refreshView1 = [[ELRefreshView alloc] initWithScrollView:self.tableView refreshDirection:ELRefreshBottom];
+        self.refreshView1.refreshBlock =  ^{
+            double delayInSeconds = 2.0;
+            dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+            dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+                [weakSelf.refreshView1 setLoading:NO];
             });
         };
     });
