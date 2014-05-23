@@ -1,12 +1,11 @@
-ELRefresh
-=========
-![image](ELRefresh.gif)
-<br/>Pull-to-refresh<br/>
-<b>How to use</b><br/>
-pod 'ELRefresh', '~> 0.0.1'<br/>
-In your viewController's viewWillAppear function:<br/>
-(onceToken should be a property of you viewController);<br/>
-<pre><code>
+#ELRefresh
+![image](ELRefresh.gif)   
+#installation
+pod 'ELRefresh', '~> 0.0.1'   
+#Usage
+In your viewController's viewWillAppear function:   
+(onceToken should be a property of you viewController);   
+```
 	dispatch_once(&_onceToken, ^{
         self.refreshView = [[ELRefreshView alloc] initWithScrollView:self.tableView refreshDirection:ELRefreshUpper];<br/>
         __weak ELViewController *weakSelf = self;
@@ -14,6 +13,4 @@ In your viewController's viewWillAppear function:<br/>
           	[weakSelf doString];
         };
     });
-</code></pre>
-</b>TO DO</b><br/>
-Now just support RefreshView in the top.<br/>
+```
